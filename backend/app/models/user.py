@@ -8,13 +8,13 @@ from app.models.owner import Owner
 if TYPE_CHECKING: #type checking needed to pass flake test
     from app.models.group import Group
 
-user_groups_table = Table(
-    "user_groups_table", 
-    Base.metadata, 
-    Column('user_id', ForeignKey('user.id')), 
-    Column('group_id', ForeignKey('group.id'))
+# user_groups_table = Table(
+#     "user_groups_table", 
+#     Base.metadata, 
+#     Column('user_id', ForeignKey('user.id')), 
+#     Column('group_id', ForeignKey('group.id'))
 
-    )
+#     )
 class User(Owner):
     __tablename__ = 'user'
     id:Mapped[uuid.UUID] = mapped_column(ForeignKey('owner.id'), default=uuid.uuid4)
